@@ -1,0 +1,27 @@
+
+      <div ng-controller='teamsController'>
+        <form ng-submit="addTeam()">
+           Name: <input type="text" ng-model="team.name" class="form-control">
+         
+          <br>
+            <input type="submit" class="btn btn-info" value="Add Team">
+        </form>
+        <br><br><table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                
+                  <th>Action</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="team in teams | orderBy: 'name' track by $index">
+                  <td>{{team.name}}</td>
+                 
+               <td><button ng-click = "delete($index)" class=" btn btn-sm btn-danger" >Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+
+      </div>

@@ -1,0 +1,27 @@
+
+      <div ng-controller='playersController'>
+        <form ng-submit="addPlayer()">
+           Name: <input type="text" ng-model="player.name" class="form-control">
+         
+          <br>
+            <input type="submit" class="btn btn-info" value="Add Player">
+        </form>
+        <br><br><table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                
+                  <th>Action</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="player in players | orderBy: 'name' track by $index">
+                  <td>{{player.name}}</td>
+                 
+               <td><button ng-click = "delete($index)" class=" btn btn-sm btn-danger" >Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+
+      </div>
